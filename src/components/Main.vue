@@ -3,7 +3,8 @@
 <button class='btn' v-on:click="handleModal">Make an offer</button>
 
 <div class='modal' ref="mymodal"><div class='modal-content'>
-    <p>Some text in the Modal..</p>
+    <p>Make an offer..</p>
+    <button :style="{float:'right'}" v-on:click="handleModal">X</button>
     <accordion :ids="accrd"/>
      <accordion :ids='accrd1'/>
      
@@ -28,7 +29,15 @@ export default {
   methods:{
       handleModal()
       {
-          this.$refs.mymodal.style.display='block';
+          let val=this.$refs.mymodal.style.display;
+          if(!val)
+          {
+this.$refs.mymodal.style.display='block'
+          }else
+          {
+          
+          this.$refs.mymodal.style.display=val==='none'?'block':'none';
+          }
       }
   }
 

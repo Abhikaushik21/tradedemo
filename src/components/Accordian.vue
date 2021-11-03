@@ -23,18 +23,15 @@ export default{
         {
             
            console.log("ids",document.getElementById(this.ids.id).style.display);
-        //  let val= document.getElementsByClassName("panel")[0].style.display;
         let val=document.getElementById(this.ids.id).style.display;
 
           if(val==='block')
           {
               document.getElementById(this.ids.id).style.display='none';
 
-             // document.getElementsByClassName("panel")[0].style.display='none';
           }else
           {
               document.getElementById(this.ids.id).style.display='block';
-             // document.getElementsByClassName("panel")[0].style.display='block';
           }
 
         
