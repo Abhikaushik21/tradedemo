@@ -1,14 +1,26 @@
 <template>
 <div>
     
-<button class="accordion" v-on:click="handleAcc">Section 1</button>
-<div class='panel' :id="ids.id">{{ids.txt}}</div>
+<button class="accordion" v-on:click="handleAcc">{{ids.name}}</button>
+<div class='panel' :id="ids.id">
+
+
+ <trade-comp v-if="ids.txt==='Trade'"></trade-comp>
+
+
+
+
+
+</div>
+
 </div>
 
 </template>
 <script>
+import TradeComp from './TradeComp.vue';
 
 export default{
+  components: { TradeComp},
     name:"accord",
     props:['ids'],
     data()

@@ -2,12 +2,18 @@
 <div class='flex-container'>
 <button class='btn' v-on:click="handleModal">Make an offer</button>
 
+
 <div class='modal' ref="mymodal"><div class='modal-content'>
-    <p>Make an offer..</p>
-    <button :style="{float:'right'}" v-on:click="handleModal">X</button>
+     <button :style="{float:'right'}" v-on:click="handleModal">X</button>
+   
+   
+    <div class="headpanel">
+
+ <formcomp/>
+    </div>
+    
     <accordion :ids="accrd"/>
      <accordion :ids='accrd1'/>
-     
 
 </div>
 </div>
@@ -16,13 +22,15 @@
 
 <script>
 import accordion from "./Accordian.vue"
+import Formcomp from './formcomp.vue'
+
 export default {
   name: 'maincomp',
-  components:{accordion},data()
+  components:{accordion, Formcomp},data()
   {
       return{
-          accrd:{id:'a1',txt:"Section 1 desc"},
-          accrd1:{id:'a2',txt:'Section 2 desc'},
+          accrd:{id:'a1',txt:"Trade",name:"Have a Trade in?(Optional)"},
+          accrd1:{id:'a2',txt:'Payment',name:"Review Payment Options(Optional)"},
           
       }
   },
@@ -56,7 +64,9 @@ this.$refs.mymodal.style.display='block'
     background:yellow;
     cursor:pointer;
 }
-
+.headpanel{
+    flex-basis: 100%;
+}
 .modal {
   display: none; 
   position: fixed; 
@@ -74,9 +84,11 @@ this.$refs.mymodal.style.display='block'
   position: relative;
   background-color: white;
   margin: auto;
+  border-radius: 1%;
+  overflow-y: auto;
   padding: 0;
   border: 1px solid #888;
-  width: 65%;
+  width: 60%;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   animation-name: animatetop;
   animation-duration: 0.4s
